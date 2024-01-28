@@ -1,6 +1,7 @@
 import { Col, Container, Tab, Row, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import { Document, Page } from 'react-pdf';
+import { Link } from 'react-router-dom';
 
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
@@ -73,7 +74,10 @@ export const Projects = () => {
                                     <Row>
                                         <div className="res">
                                             <h2 className="heading">Resume</h2>
-                                            <iframe src={resume} width="100%" height="500px" />
+                                            <center><iframe src="https://resume.creddle.io/resume/aes46voqhjl" width="900" height="500" seamless></iframe></center>
+                                        </div>
+                                        <div className="align-items-center text-center">
+                                        <a href={resume} download><button className="download-btn"><span>Download</span></button></a>
                                         </div>
                                     </Row>
                                 </Tab.Pane>
