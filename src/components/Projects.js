@@ -1,7 +1,6 @@
 import { Col, Container, Tab, Row, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import { Document, Page } from 'react-pdf';
-import { Link } from 'react-router-dom';
 
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
