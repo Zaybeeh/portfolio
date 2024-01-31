@@ -1,47 +1,26 @@
 import { Col, Container, Row } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import contactImg from "../assets/img/contact-img.svg";
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
-    const formInitialDetails = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        message: ''
-    }
-
-    const [formDetails, setFormDetails] = useState(formInitialDetails);
+    const form = useRef();
     const [buttonText, setButtonText] = useState('Send');
-    const [status, setStatus] = useState('Send');
 
-    const OnFormUpdate = (category, value) => {
-        setFormDetails({
-            ...formDetails,
-            [category]: value
-        })
-    }
-
-    const handleSubmit = async (e) => {
+    const sendEmail = (e) => {
         e.preventDefault();
         setButtonText('Sending...');
-        let response = await fetch("/api/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json;charset=utf-8",
-            },
-            body: JSON.stringify(formDetails),
-        });
-        
-        let result = await response.json();
-        setButtonText("Send");
-        setFormDetails(formInitialDetails);
-        if (result.code == 200) {
-            setStatus({ success: true, message: 'Message sent successfuly'});
-        } else {
-            setStatus({ success: false, message: 'Something went wrong, please try again later'})
-        }
-    };
+    
+        emailjs.sendForm('service_p5gpvvt', 'template_vl2isdl', form.current, 'hPYdWcL2daZToF_yR')
+          .then((result) => {
+              console.log(result.text);
+              e.target.reset();
+              alert('Message Sent Successfully!');
+              setButtonText("Send");
+          }, (error) => {
+              console.log(error.text);
+          });
+      };
 
     return (
         <section className="contact" id="connect">
@@ -52,30 +31,24 @@ export const Contact = () => {
                     </Col>
                     <Col md={6}>
                         <h2>Let's Get in Touch</h2>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={sendEmail} ref={form}>
                             <Row>
                                 <Col sm={6} className="px-1">
-                                    <input type="text" value={formDetails.firstName} placeholder="First Name" onChange={(e) => OnFormUpdate('firstName', e.target.value)} />
+                                    <input type="text" name="first" placeholder="First Name" />
                                 </Col>
                                 <Col sm={6} className="px-1">
-                                    <input type="text" value={formDetails.lastName} placeholder="Last Name" onChange={(e) => OnFormUpdate('lastName', e.target.value)} />
+                                    <input type="text" name="last" placeholder="Last Name" />
                                 </Col>
                                 <Col sm={6} className="px-1">
-                                    <input type="email" value={formDetails.email} placeholder="Email Address" onChange={(e) => OnFormUpdate('email', e.target.value)} />
+                                    <input type="email" name="user_email" placeholder="Email Address"  />
                                 </Col>
                                 <Col sm={6} className="px-1">
-                                    <input type="tel" value={formDetails.phone} placeholder="Phone No." onChange={(e) => OnFormUpdate('phone', e.target.value)} />
+                                    <input type="tel" name="user_number" placeholder="Phone No."  />
                                 </Col>
                                 <Col className="px-1">
-                                    <textarea row="6" value={formDetails.message} placeholder="Message" onChange={(e) => OnFormUpdate('message', e.target.value)} />
+                                    <textarea row="6" name="message" placeholder="Message" />
                                 </Col>
-                                    <button type="submit"><span>{buttonText}</span></button>
-                                {
-                                    status.message && 
-                                    <Col>
-                                        <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
-                                    </Col>
-                                }
+                                    <button type="submit" value='Send'><span>{buttonText}</span></button>
                             </Row>
                         </form>
                     </Col>
