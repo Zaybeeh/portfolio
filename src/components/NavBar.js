@@ -5,6 +5,7 @@ import linkedin from '../assets/img/linkedin.png';
 import github from '../assets/img/github.svg';
 import facebook from '../assets/img/facebook.png';
 import twitter from '../assets/img/twitter.png';
+import cal from '../assets/img/Calendar icon.png'
 
 export const NavBar = () => {
     const [activeLink, setActiveLink] = useState('home');
@@ -44,7 +45,10 @@ export const NavBar = () => {
                         <Nav.Link href="#project" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
                     </Nav>
                     <span className="navbar-text">
+                        <div className="cal-icon">
+                        </div>
                         <div className="social-icon">
+                            <a target="_blank" href="https://calendly.com/sabeehtahir/30min"><img src={cal} alt="Calendly"/></a>
                             <a target="_blank" href="https://www.linkedin.com/in/sabeeh-t-a20588130/"><img src={linkedin} alt="LinkedIn"/></a>
                             <a target="_blank" href="https://github.com/Zaybeeh"><img src={github} alt="GitHub"/></a>
                             <a target="_blank" href="https://www.facebook.com/sabeeh.tahir.5/"><img src={facebook} alt="FaceBook"/></a>
