@@ -73,7 +73,7 @@ export const Projects = () => {
                                     <Row>
                                         <div className="res">
                                             <h2 className="heading">Resume</h2>
-                                            <center><iframe src="https://resume.creddle.io/resume/aes46voqhjl" width="1000" height="600" seamless></iframe></center>
+                                            <center><iframe src="https://resume.creddle.io/embed/aes46voqhjl" width="850" height="600" seamless></iframe></center>
                                         </div>
                                         <div className="align-items-center text-center">
                                         <a href={resume} download><button className="download-btn"><span>Download</span></button></a>
