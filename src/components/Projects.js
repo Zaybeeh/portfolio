@@ -9,10 +9,22 @@ import projImg1 from "../assets/img/Chatbot.gif";
 import projImg2 from "../assets/img/GGI.gif";
 import projImg3 from "../assets/img/CAD.gif";
 import projImg4 from "../assets/img/Library.gif";
+import projImg5 from "../assets/img/Elevator Project.png";
+import projImg6 from "../assets/img/Remote Control.png";
 import resume from "../assets/documents/Sabeeh_Tahir_Resume.pdf"
 
 export const Projects = () => {
     const projects = [
+        {
+            title: "Elevator Project",
+            description: "A cabin control system utilizing a motor driven by push button inputs feeding into an FPGA using Verilog programming.",
+            imgUrl: projImg5,
+        },
+        {
+            title: "Remote Control Car",
+            description: " Remote Controlled Car utilizing an Arduino , Bluetooth technology, a gyroscope, and the C++ programming language.",
+            imgUrl: projImg6,
+        },
         {
             title: "React Chatbot",
             description: "Develop an automated chatbot to respond to queries.",
@@ -73,7 +85,7 @@ export const Projects = () => {
                                     <Row>
                                         <div className="res">
                                             <h2 className="heading">Resume</h2>
-                                            <center><iframe src="https://resume.creddle.io/embed/aes46voqhjl" width="850" height="600" seamless></iframe></center>
+                                            <center><iframe src="https://www.resume.lol/share/5703lnp" width="100%" height="600" seamless></iframe></center>
                                         </div>
                                         <div className="align-items-center text-center">
                                         <a href={resume} download><button className="download-btn"><span>Download</span></button></a>
@@ -82,7 +94,7 @@ export const Projects = () => {
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="third">
                                         <div className="align-items-center text-center">
-                                        <p>
+                                        <p>  
                                             This was a project I did to explain my inspiration for my chosen field. It does a great job explaining why I am who I am today.
                                         </p>
                                         <iframe

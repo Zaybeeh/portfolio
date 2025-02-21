@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { ArrowRightCircle, Link } from "react-bootstrap-icons";
+import { ArrowRightCircle, Justify, Link } from "react-bootstrap-icons";
 import headerImg from "../assets/img/header-img.png";
 import 'animate.css';
 import TrackVisibility from "react-on-screen";
@@ -11,7 +11,7 @@ export const Banner = () => {
     const [text, setText] = useState('');
     const [delta, setDelta] = useState(1 - Math.random() * 100);
     const [index, setIndex] = useState(1);
-    const toRotate = [ "Automation Engineer", "Coop Student", "Software Developer"];
+    const toRotate = ["Coop Student", "Automation Engineer", "Software Developer"];
     const period = 2000;
 
     useEffect(() => {
@@ -55,7 +55,7 @@ export const Banner = () => {
                             <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                                 <span className="tagline">Welcome to my Portfolio</span>
                                 <h1>{`Hello, I'm Sabeeh a `}<span className="wrap">{text}</span></h1>
-                                <p>I am an Automation Software Engineer, studying at McMaster University. I am a tech enthusiast and I want to be a part of an industry I have been passionate about since I was about 7 years old. I am ready to make my mark as an engineer and enthusiast of the field.</p>
+                                <p className="justified-text">I am a fourth-year Automation Software Engineering student with a solid foundation in engineering and programming. I bring strong technical expertise and problem-solving skills, supported by extensive experience with various programming languages and industrial technologies, and I am ready to tackle new challenges in the industry. </p>
                                 <a href="#connect"><button onClick={() => console.log('connect')}>Let's Connect<ArrowRightCircle size={25}/></button></a>
                             </div>}
                         </TrackVisibility>

@@ -2,6 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useState, useRef } from "react";
 import contactImg from "../assets/img/contact-img.svg";
 import emailjs from '@emailjs/browser';
+import { InlineWidget } from "react-calendly";
 
 export const Contact = () => {
     const form = useRef();
@@ -27,9 +28,13 @@ export const Contact = () => {
             <Container>
                 <Row className="align-items-center">
                     <Col md={6}>
-                        <img src={contactImg} alt="Contact Us"/>
+                    {/*<div className="calendly-embed">
+                        <InlineWidget className="calendly-widget" url="https://calendly.com/sabeehtahir" />
+                    </div>*/}
+                    <img src={contactImg} alt="Contact" />
                     </Col>
                     <Col md={6}>
+                    <div>
                         <h2>Let's Get in Touch</h2>
                         <form onSubmit={sendEmail} ref={form}>
                             <Row>
@@ -51,6 +56,7 @@ export const Contact = () => {
                                     <button type="submit" value='Send'><span>{buttonText}</span></button>
                             </Row>
                         </form>
+                        </div>
                     </Col>
                 </Row>
             </Container>
